@@ -1,8 +1,8 @@
 node() {
- def yaml = readYaml file: "test.yaml"
- if !(yaml.data2 && yaml.data2.name){
-  println("no data found") 
-}else{
-  println(yaml.data2.info)
- }
+def proc = "ls".execute()
+def b = new StringBuffer()
+proc.consumeProcessErrorStream(b)
+
+println proc.text
+println b.toString()
 }
